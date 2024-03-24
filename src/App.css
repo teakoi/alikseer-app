@@ -1,38 +1,303 @@
-.App {
+
+/*Commenting out the css that they don't want yet for assignment 4*/
+
+/* styles.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+.header {
+  /* background-color: #333; */
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  max-height: 50px; /* Adjust as needed */
+}
+
+.company-name {
+  /* color: white;  */
+}
+
+/* Navigation Styles */
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  /* background-color: #333; */
+}
+
+.nav-link {
+  padding: 10px 20px;
+  /* color: white; */
+  /* text-decoration: none; */
+}
+
+/* Main Content Styles */
+main {
+  padding: 20px;
+}
+
+/* About Us Section Styles */
+.about-us {
+  background-color: #ddd;
+  padding: 20px;
+  margin: 20px;
+}
+
+/* Customer Reviews Section Styles */
+.customer-reviews {
+  background-color: #ddd;
+  padding: 20px;
+  margin: 20px;
+}
+
+/* Shop Now Button Styles */
+.shop-now-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 20px;
+  cursor: pointer;
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #333;
+  padding: 10px;
+  margin: 0;
+  color: white;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Product List Section Styles */
+.product-list {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  margin: 20px;
+  margin: 0 auto;
+  background-color: #ddd;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Product Styling */
+.product {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  width: 50%; /* Ensure two products per line with spacing */
+  text-align: center;
+}
+/* Product Container Styles */
+.product-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.product img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.product .price {
+  color: #007BFF;
+  font-weight: bold;
+}
+
+/* Hover Effect */
+.product:hover {
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+/* Button Styling */
+.add-to-cart-btn {
+  background-color: grey;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #45A049;
+}
+
+.remove-btn {
+  background-color: grey;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: #ff0000;
+}
+
+.cart-items li {
+  list-style-type: none; /* Remove bullet point style */
+}
+.cart-items button {
+ background-color: grey;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* Login Form Section Styles */
+.login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #ddd;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+/* Form Field Styles */
+form label {
+  display: block;
+  margin: 10px;
+}
+
+form input {
+  background-color: #fff;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+/* Login Button Styles */
+.login-btn {
+  background-color: #4CAF50;
   color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+  opacity: .5
 }
 
-.App-link {
-  color: #61dafb;
+.login-btn:hover {
+  background-color: #45A049;
+  opacity: 1.0
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Signup Link Styles */
+.signup-link {
+  color: #007BFF;
+  text-decoration: none;
+  margin: 10px;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+/* Contact Information Section Styles */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  background-color: #ddd;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+/* Contact Method Styles */
+.contact-method {
+  background-color: #ddd;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 10px;
+}
+
+/* Social Media Links Hover Effect */
+.contact-method ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-method ul li a {
+  color: light blue; /* Adjust text color */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.contact-method ul li a:hover {
+  color: #007BFF; /* Blue color on hover */
+}
+
+/* Signup Form Section */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ddd;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+/* Form Fields */
+.signup-form label {
+  display: block;
+  margin: 10px;
+}
+
+.signup-form input {
+  background-color: #fff;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+/* Signup Button */
+.signup-btn {
+  background-color: #4CAF50;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+  opacity: 0.5;
+  color: white;
+  border: none;
+}
+
+.signup-btn:hover {
+  background-color: #45A049;
+  opacity: 1.0;
+}
+.msgbox {
+background-color: #f9f9f9;
+border: 2px;
+padding: 10px;
+margin: 20px;
+}
+
+.message-box {
+  border: 2px solid;
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin: 20px;
 }

@@ -1,5 +1,7 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import Productpage from "./Productpage";
+import Homepage from "./Homepage";
 
 export function Header(){
     return (
@@ -10,14 +12,13 @@ export function Header(){
             <div class = "company-name">
                 <h1> Alikseer </h1>
             </div>
-            <Router>
-                <nav>
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="products.html" class="nav-link">Products</a>
-                    {/* <a href="contact.html" class="nav-link">Contact Us</a> */}
-                    <a href="login.html" class="nav-link">Login</a> 
-                </nav>                
-            </Router>
+            {/* I put routing in index.js, hope that's ok */}
+            <nav>
+                <Link to="/">Home</Link> {/*idk if this "/" will always work*/}
+                <Link to="/Productpage">Products</Link>
+                <Link to="/Loginpage">Login</Link>
+
+            </nav>
         </header>
     );
 }
