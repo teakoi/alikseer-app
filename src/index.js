@@ -8,6 +8,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Productpage from './component/Productpage';
+import Loginpage from './component/Loginpage';
 
 
 
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
   {
     path: "Productpage",
     element: <Productpage/>
-  }
+  },
   {
     path: "Loginpagee",
     element: <Loginpage/>
