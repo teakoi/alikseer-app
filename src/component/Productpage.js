@@ -1,8 +1,13 @@
 import React from 'react';
+import Header from './Header';
 
 function Productpage(){
     return(
-        <h1>product page</h1>
+        <div>
+            <Header />
+            <h1>product page</h1>
+        </div>
+
     );
 }
 
