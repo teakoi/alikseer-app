@@ -10,7 +10,7 @@ body {
 /* Header Styles */
 .header {
   /* background-color: #333; */
-  padding: 20px;
+  /* padding: 20px; */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -21,9 +21,9 @@ body {
   max-height: 50px; /* Adjust as needed */
 }
 
-.company-name {
-  /* color: white;  */
-}
+/* .company-name {
+  color: white; 
+} */
 
 /* Navigation Styles */
 nav {
@@ -33,32 +33,33 @@ nav {
   /* background-color: #333; */
 }
 
+/*
 .nav-link {
   padding: 10px 20px;
-  /* color: white; */
-  /* text-decoration: none; */
-}
+  /* color: white; *-/
+  /* text-decoration: none; *-/
+}*/
 
-/* Main Content Styles */
+/* Main Content Styles *-/
 main {
   padding: 20px;
 }
 
-/* About Us Section Styles */
+/* About Us Section Styles *-/
 .about-us {
   background-color: #ddd;
   padding: 20px;
   margin: 20px;
 }
 
-/* Customer Reviews Section Styles */
+/* Customer Reviews Section Styles *-/
 .customer-reviews {
   background-color: #ddd;
   padding: 20px;
   margin: 20px;
 }
 
-/* Shop Now Button Styles */
+/* Shop Now Button Styles *-/
 .shop-now-btn {
   background-color: #4CAF50;
   color: white;
@@ -69,14 +70,14 @@ main {
   cursor: pointer;
 }
 
-/* Footer Styles */
+/* Footer Styles *-/
 .footer {
   background-color: #333;
   padding: 10px;
   margin: 0;
   color: white;
   text-align: center;
-}
+}*/
 
 /* Product List Section Styles */
 .product-list {

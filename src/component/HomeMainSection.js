@@ -26,7 +26,7 @@ function HomeMainSection(){
 
  
             <section class="customer-reviews">
-                <h2>Customer Rewviews</h2>
+                <h2>Customer Reviews</h2>
                 {/* <h2>Read Our Reviews:</h2>
 
 
