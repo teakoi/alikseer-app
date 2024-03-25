@@ -24,3 +24,5 @@ const Header= () =>{
 }
 
 export default Header;
+
+// better practice is to have a navbar component but they didnt allow that
