@@ -6,7 +6,7 @@ import CartItem from './CartItem'; // Import CartItem
 
 const ProductList = () => {
     return (
-        <p>meow.</p>
+        <p>product list.</p>
     );
 };
 

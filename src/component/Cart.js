@@ -4,7 +4,7 @@ import CartItem from './CartItem';
 
 const Cart = () => {
     return (
-        <p>meow.</p>
+        <p>cart.</p>
     );
 };
 

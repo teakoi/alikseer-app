@@ -4,7 +4,7 @@ import productsData from '../data/products';
 
 const CartItem = ({ item, removeFromCart }) => {
     return (
-        <p>meow.</p>
+        <p>cart item.</p>
     );
 }
 
