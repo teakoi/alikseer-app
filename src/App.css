@@ -81,16 +81,27 @@ main {
 
 /* Product List Section Styles */
 .product-list {
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 20px;
   margin: 20px;
-  margin: 0 auto;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
   background-color: #ddd;
-  text-align: center;
+  width: 50%
+  /*text-align: center; */
 }
 
 /* Product Styling */
+.content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
 .product {
   background-color: #f9f9f9;
   padding: 20px;
@@ -102,13 +113,36 @@ main {
 /* Product Container Styles */
 .product-container {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: flex-start;
+  width: 50%;
 }
-.product img {
+.product-item {
+  display: flex;
   max-width: 100%;
   border-radius: 8px;
   margin-bottom: 10px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+/* cart stuff*/
+.cart {
+  display: flex; 
+  width:50%;
+  justify-content: flex-end;
+}
+
+.cart-items li {
+  list-style-type: none; /* Remove bullet point style */
+}
+.cart-items button {
+  background-color: grey;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
 }
 
 .product .price {
@@ -151,18 +185,7 @@ main {
   background-color: #ff0000;
 }
 
-.cart-items li {
-  list-style-type: none; /* Remove bullet point style */
-}
-.cart-items button {
- background-color: grey;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  margin: 10px;
-  cursor: pointer;
-}
+
 
 /* Login Form Section Styles */
 .login-form {
