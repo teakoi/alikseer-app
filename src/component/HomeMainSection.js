@@ -4,8 +4,9 @@ import Productpage from "./Productpage";
 import Header from "./Header";
 import Homepage from "./Homepage";
 import reviews from  "../data/reviews"; //Import the reviews array
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-//TODO: The stars arent displaying, fix that.
 
 const HomeMainSection = () =>{
     const [DisplayedReviews, setDisplayedReviews] = useState([]);
@@ -23,7 +24,7 @@ const HomeMainSection = () =>{
     const renderStars = (stars) => {
         const starIcons = [];
         for (let i = 0; i < stars; i++) {
-            starIcons.push(<i key={i} className="fa-solid fa-star"></i>);
+            starIcons.push(<FontAwesomeIcon key={i} icon={faStar}/>);
         }
         return starIcons;
     };
