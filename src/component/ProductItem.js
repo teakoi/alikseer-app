@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
+import product from '../data/products';
+import CartItem from './CartItem';
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product, handleAddToCart, CartItem }) => {
     const [showDescription, setShowDescription] = useState(false);
 
     const toggleDescription = () => {
         setShowDescription(!showDescription);
     };
 
-    const addToCart = () => {
-        // Implement the logic to add the product to the cart
-        console.log('Added to cart:', product);
-    };
 
     return (
         <div className="product-item" onMouseEnter={toggleDescription} onMouseLeave={toggleDescription}>
@@ -18,7 +16,8 @@ const ProductItem = ({ product }) => {
             <h3>{product.name}</h3>
             {showDescription && <p>{product.description}</p>}
             <p>Price: {product.price}</p>
-            <button onClick={addToCart}>Add to Cart</button>
+            <button onClick={()=>handleAddToCart(product)}>Add to Cart</button>
+            <CartItem />
         </div>
     );
 };

@@ -1,30 +1,32 @@
 
-// ProductList.js
 import React, { useState } from 'react';
 import ProductItem from './ProductItem';
-import products from '../data/products';
+import product from '../data/products';
+import CartItem from './CartItem'; // Import CartItem
 
-const ProductList = () => {
+const ProductList = ({ product, handleAddToCart}) => {
     const [cartItems, setCartItems] = useState([]);
 
     const addToCart = (product) => {
-        const existingItemIndex = cartItems.findIndex(item => item.id === product.id);
+        const existingItemIndex = CartItem.findIndex(item => item.id === product.id);
 
         if (existingItemIndex !== -1) {
             // If item already exists in cart, increase quantity by 1
-            const updatedCartItems = [...cartItems];
+            const updatedCartItems = [...CartItem];
             updatedCartItems[existingItemIndex].quantity += 1;
             setCartItems(updatedCartItems);
         } else {
             // If item doesn't exist in cart, add it with quantity 1
-            setCartItems([...cartItems, { ...product, quantity: 1 }]);
+            setCartItems([...CartItem, { ...product, quantity: 1 }]);
         }
+        console.log('Added to cart:', product);
     };
+
 
     return (
         <div className="product-list">
-            {products.map(product => (
-                <ProductItem key={product.id} product={product} addToCart={addToCart} />
+            {product.map(product => (
+                <ProductItem key={product.id} product={product} handleAddToCart={handleAddToCart} CartItem={CartItem} />
             ))}
         </div>
     );
