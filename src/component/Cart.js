@@ -1,11 +1,9 @@
 // Cart.js
 import React, { useContext } from 'react';
 import product from '../data/products';
-import { ProductContext } from "../context/ProductList-context";
 import { CartItem } from './CartItem';
 
 const Cart = () => {
-    const { cartItems, getTotalCartAmount } = useContext(ProductContext);
     const totalAmount = getTotalCartAmount()
 
     return (
