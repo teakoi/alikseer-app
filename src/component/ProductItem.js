@@ -7,21 +7,14 @@ import CartItem from './CartItem';
 
 const ProductItem = (props) => {
     const {id, name, price, image, description} = props.data;
-    const{ addToCart, cartItems } = useContext(ProductContext);
-
-    const cartItemAmount = cartItems[id];
     return (
         <div className="product">
             <img src={image} width="350"/>
             <h3 className="product-name">{name}</h3>
             <p className="price">${price}</p>    
-            <button className="add-to-cart-btn" onClick={() => addToCart(id)} >
-                Add To Cart {cartItemAmount >0 && <>({cartItemAmount}) </>}
-            </button>      
+            <button className="add-to-cart-btn">Add To Cart</button>      
         </div>
     );
 };
 
 export default ProductItem;
-
-
