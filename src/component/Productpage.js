@@ -5,7 +5,7 @@ import ProductList from './ProductList';
 import Cart from './Cart';
 
 
-function Productpage(){
+const Productpage= () =>{
     return(
         <div>
             <Header />

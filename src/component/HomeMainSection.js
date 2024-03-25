@@ -5,7 +5,7 @@ import Header from "./Header";
 import Homepage from "./Homepage";
 import reviews from  "../data/reviews"; //Import the reviews array
 
-
+//TODO: The stars arent displaying, fix that.
 
 const HomeMainSection = () =>{
     const [DisplayedReviews, setDisplayedReviews] = useState([]);
@@ -27,7 +27,6 @@ const HomeMainSection = () =>{
         }
         return starIcons;
     };
-
 
 
     return(

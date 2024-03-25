@@ -3,7 +3,7 @@ import Header from './Header';
 import HomeMainSection from './HomeMainSection';
 import Footer from './Footer';
 
-function Homepage(){
+const Homepage= () =>{
     return(
         <div>
             <Header />

@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import Productpage from "./Productpage";
 import Homepage from "./Homepage";
 
-export function Header(){
+const Header= () =>{
     return (
         <header class = "header">
             <div class ="logo">
