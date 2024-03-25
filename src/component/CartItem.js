@@ -1,19 +1,11 @@
 // CartItem.js
 import React from 'react';
+import productsData from '../data/products';
 
 const CartItem = ({ item, removeFromCart }) => {
-    const { image, name, price, quantity } = item;
-
     return (
-        <div className="cart-item">
-            <img src={image} alt={name} />
-            <p>{name}</p>
-            <p>Price: {price}</p>
-            <p>Quantity: {quantity}</p>
-            <p>Total: {price * quantity}</p>
-            <button onClick={() => removeFromCart(item)}>Remove</button>
-        </div>
+        <p>meow.</p>
     );
-};
+}
 
 export default CartItem;
