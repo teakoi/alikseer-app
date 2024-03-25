@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 import Productpage from "./Productpage";
 import Header from "./Header";
 import Homepage from "./Homepage";
+import reviews from 
+
 
 function HomeMainSection(){
     return(
@@ -27,26 +29,6 @@ function HomeMainSection(){
  
             <section class="customer-reviews">
                 <h2>Customer Reviews</h2>
-                {/* <h2>Read Our Reviews:</h2>
-
-
-                <div class="review">
-                    <p>
-                        <span class="customer-name">Mark Markson</span>
-                        "Alikseers potions are the best of the best! They're priced well, arrive fast, and they work great. Can't recommend them enough!"
-                        <p class="rating">⭐⭐⭐⭐⭐</p>
-                    </p>
-                </div>
-
-
-                <div class="review">
-                    <p>
-                        <span class="customer-name">Eliza Elizine</span>
-                        "The best potion store on the market, hands down. Once I tried these elixirs I couldn't go anywhere else. I can't imagine my life without them!"
-                        <p class="rating">⭐⭐⭐⭐⭐</p>
-                    </p>
-                </div> */}
-
             </section>
 
         </main>
