@@ -9,7 +9,6 @@ export const CartItem = (props) => {
             <img src={image} width="350"/>
             <h3 className="product-name">{name}</h3>
             <p className="price">${price}</p>   
-            <button className="remove-btn" onClick={() => removeFromCart(id)}>Remove</button>
 
         </div>
     );
