@@ -5,11 +5,11 @@ import Homepage from "./Homepage";
 
 const Header= () =>{
     return (
-        <header class = "header">
-            <div class ="logo">
+        <header className= "header">
+            <div className="logo">
                 <img src="../images/logo.png" alt="logo" height="100"/>
             </div>
-            <div class = "company-name">
+            <div className= "company-name">
                 <h1> Alikseer </h1>
             </div>
             {/* I put routing in index.js, hope that's ok */}

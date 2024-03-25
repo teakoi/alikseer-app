@@ -44,16 +44,16 @@ const HomeMainSection = () =>{
             </section>
 
 
-            <section class="shop-now">
-                <Link to="/Productpage"><button class="shop-now-btn">Shop Now!</button></Link>
+            <section className="shop-now">
+                <Link to="/Productpage"><button className="shop-now-btn">Shop Now!</button></Link>
             </section>
 
 
  
-            <section class="customer-reviews">
+            <section className="customer-reviews">
                 <h2>Customer Reviews</h2>
                 {DisplayedReviews.map((review, index) => (
-                    <div key={index} class="review">
+                    <div key={index} className="review">
                         <p>{review.customerName}</p>
                         <p>{review.reviewContent}</p>
                         <p>Rating: {renderStars(review.stars)}</p>
