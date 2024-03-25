@@ -1,12 +1,20 @@
 
 import React, { useState } from 'react';
 import ProductItem from './ProductItem';
-import productsData from '../data/products';
+import product from '../data/products';
 import CartItem from './CartItem'; // Import CartItem
 
 const ProductList = () => {
     return (
-        <p>product list.</p>
+        <div className="ProductListContainer">
+            <p>product list.</p>
+            <div className="productsList">
+                {" "}
+                {product.map((product) => (
+                    <ProductItem data={product} />
+                ))}
+            </div>
+        </div>
     );
 };
 
