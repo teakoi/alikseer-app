@@ -27,7 +27,7 @@ const ProductItem = ({ product, addProductToCart }) => {
 
                 <button onClick={handleaddProductToCart}>Add to Cart</button>
 
-                {showDescription && <p className="product-description">Description: {description}</p>}
+                {showDescription && <p className="product-description">{description}</p>}
 
             </div>
         </div>
