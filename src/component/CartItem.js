@@ -1,20 +1,20 @@
 import React from 'react';
 import products from '../data/products';
 
-const CartItem = ({ item, removeFromCart, updateQuantity }) => {
+const CartItem = ({ item, removeProductFromCart, updateQuantity }) => {
   const product = products.find(product => product.id === item.id);
 
   if (!product) return null;
 
   return (
     <div className="cart-item">
-      <img src={product.image} alt={product.name} width="350" />
+      <img className="product-image" src={product.image} alt={product.name} width="200" />
       <div>
-        <h3>{product.name}</h3>
-        <p>Price: ${product.price}</p>
-        <p>Quantity: {item.quantity}</p>
-        <p>Item Total: ${product.price * item.quantity}</p>
-        <button onClick={() => removeFromCart(item.id)}>Remove</button>
+        <p className="product-name">{product.name}</p>
+        <p className="price">Price: ${product.price}</p>
+        <p className="quantity">Quantity: {item.quantity}</p>
+        <p className="total-price">Total: ${product.price * item.quantity}</p>
+        <button onClick={() => removeProductFromCart(item.id)}>Remove</button>
       </div>
     </div>
   );

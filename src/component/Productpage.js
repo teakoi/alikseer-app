@@ -6,9 +6,9 @@ import Footer from './Footer';
 
 
 const ProductPage = () => {
-  // Define state for the cart using useState hook
+
   const [cart, setCart] = useState(() => {
-    // Retrieve saved cart from localStorage or initialize an empty array if not found
+
     const savedCart = localStorage.getItem('cart');
     return savedCart ? JSON.parse(savedCart) : [];
   });
@@ -19,11 +19,10 @@ const ProductPage = () => {
   }, [cart]);
 
 
-  const addToCart = (product) => {
+  const addProductToCart = (product) => {
     const updatedCart = [...cart];
     const existingItemIndex = updatedCart.findIndex(item => item.id === product.id);
 
-    // If the item exists in the cart, increase its quantity by 1; otherwise, add it to the cart with a quantity of 1
     if (existingItemIndex !== -1) {
       updatedCart[existingItemIndex].quantity += 1;
     } else {
@@ -32,11 +31,11 @@ const ProductPage = () => {
     setCart(updatedCart);
   };
 
-  // Function to remove a product from the cart
-  const removeFromCart = (productId) => {
+
+  const removeProductFromCart = (productId) => {
     const updatedCart = [...cart];
     const existingItemIndex = updatedCart.findIndex(item => item.id === productId);
-
+  
     // If the item exists in the cart, reduce its quantity by 1; if quantity is 1, remove the item from the cart
     if (existingItemIndex !== -1) {
       if (updatedCart[existingItemIndex].quantity > 1) {
@@ -54,8 +53,9 @@ const ProductPage = () => {
       <table>
         <tbody>
           <tr>
-            <td><ProductList addToCart={addToCart}/></td>
-            <td style={{ verticalAlign: 'top' }}><Cart cart={cart} removeFromCart={removeFromCart}/></td>
+            <td><ProductList addProductToCart={addProductToCart}/></td>
+            <td style={{ verticalAlign: 'top' }}>
+            <Cart cart={cart} removeProductFromCart={removeProductFromCart}/></td>
           </tr>
         </tbody>
       </table>

@@ -2,7 +2,7 @@ import React from 'react';
 import ProductItem from './ProductItem';
 import productsData from '../data/products';
 
-const ProductList = ({ addToCart }) => {
+const ProductList = ({ addProductToCart }) => {
   return (
     <div className="product-list">
 
@@ -10,7 +10,7 @@ const ProductList = ({ addToCart }) => {
         <ProductItem 
           key={product.id} 
           product={product} 
-          addToCart={addToCart} />
+          addProductToCart={addProductToCart} />
           
       ))}
     </div>

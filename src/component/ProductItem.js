@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
-const ProductItem = ({ product, addToCart }) => {
+const ProductItem = ({ product, addProductToCart }) => {
     const { name, image, price, description } = product;
-    // State to manage whether to show the description or not
+ 
     const [showDescription, setShowDescription] = useState(false);
 
 
-    // Function to handle adding the product to the cart
-    const handleAddToCart = () => {
-        addToCart(product);
+ 
+    const handleaddProductToCart = () => {
+        addProductToCart(product);
     };
 
     return (
@@ -18,16 +18,17 @@ const ProductItem = ({ product, addToCart }) => {
 
             <div>
   
-                <h3 className="product-name" 
+                <p className="product-name" 
                 onMouseEnter ={() => setShowDescription(true)} 
                 onMouseLeave={() => setShowDescription(false)}
-                >{name}</h3>
+                >{name}</p>
 
                 <p className="price">${price}</p>
 
+                <button onClick={handleaddProductToCart}>Add to Cart</button>
+
                 {showDescription && <p className="product-description">Description: {description}</p>}
 
-                <button onClick={handleAddToCart}>Add to Cart</button>
             </div>
         </div>
     );

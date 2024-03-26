@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import Homepage from './component/Homepage';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {
@@ -16,14 +17,14 @@ import product from './data/products';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>
+    element: <Homepage/>
   },
   {
-    path: "Productpage",
+    path: "/Productpage",
     element: <Productpage/>
   },
   {
-    path: "Loginpage",
+    path: "/Loginpage",
     element: <Loginpage/>
   }
 ]);

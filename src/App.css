@@ -10,7 +10,7 @@ body {
 /* Header Styles */
 .header {
   /* background-color: #333; */
-  /* padding: 20px; */
+   padding: 20px; 
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -82,15 +82,15 @@ main {
 /* Product List Section Styles */
 .product-list {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: space-around;
   padding: 20px;
   margin: 20px;
   justify-content: flex-start;
   flex-direction: column;
   align-items: flex-start;
-  background-color: #ddd;
-  width: 50%
+  /* background-color: #ddd;
+  width: 50% */
   /*text-align: center; */
 }
 
@@ -103,12 +103,12 @@ main {
   flex-wrap: nowrap;
 }
 .product {
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
   padding: 20px;
   margin: 20px;
   border-radius: 10px;
   width: 50%; /* Ensure two products per line with spacing */
-  text-align: center;
+  /* text-align: center; */
 }
 /* Product Container Styles */
 .product-container {
@@ -132,14 +132,16 @@ main {
 
 /* cart stuff*/
 .cart {
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
   display: flex; 
-  width:50%;
-  justify-content: flex-end;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
 
-.cart-items li {
-  list-style-type: none; /* Remove bullet point style */
-}
+
+
 .cart-items button {
   background-color: grey;
   color: white;
@@ -150,16 +152,22 @@ main {
   cursor: pointer;
 }
 
-.product .price {
+/* .product .price {
   color: #007BFF;
   font-weight: bold;
-}
+} */
 
 /* Hover Effect */
-.product:hover {
+/* .product:hover {
   background-color: #ffffff;
   transition: background-color 0.3s ease;
-}
+} */
+
+/* ############################################################ */
+
+
+
+
 
 /* Button Styling */
 .add-to-cart-btn {

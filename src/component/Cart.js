@@ -1,10 +1,11 @@
 import React from 'react';
 import CartItem from './CartItem';
 
- const Cart = ({ cart, removeFromCart, updateQuantity }) => {
-  const calculateTotal = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
-  };
+ const Cart = ({ cart, removeProductFromCart, updateQuantity }) => {
+    const calculateTotal = () => {
+        const totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+        return totalAmount.toFixed(2); // Round to 2 decimal places
+      };
 
   return (
     <div className="cart">
@@ -13,11 +14,11 @@ import CartItem from './CartItem';
         <CartItem
           key={item.id}
           item={item}
-          removeFromCart={removeFromCart}
+          removeProductFromCart={removeProductFromCart}
           updateQuantity={updateQuantity}
         />
       ))}
-      <h3>Total: ${calculateTotal()}</h3>
+      <p>Total (in cart): ${calculateTotal()}</p>
     </div>
   );
 };
