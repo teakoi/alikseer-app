@@ -1,7 +1,7 @@
 import React from 'react';
 import CartItem from './CartItem';
 
-const Cart = ({ cart, removeFromCart, updateQuantity }) => {
+ const Cart = ({ cart, removeFromCart, updateQuantity }) => {
   const calculateTotal = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };

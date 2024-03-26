@@ -3,25 +3,24 @@ import Header from './Header';
 import ProductList from './ProductList';
 import Cart from './Cart';
 import Footer from './Footer';
-// import productsData from '../data/products';
+
 
 const ProductPage = () => {
   // Define state for the cart using useState hook
   const [cart, setCart] = useState(() => {
-    // Retrieve saved cart from localStorage (this is for saving the cart when the page is left or reloaded) or initialize an empty array if not found
+    // Retrieve saved cart from localStorage or initialize an empty array if not found
     const savedCart = localStorage.getItem('cart');
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
-  // Save cart to localStorage whenever it changes using useEffect hook to save it when refreshed or when leaving the mpage
+  // Save cart to localStorage whenever it changes using useEffect hook
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
-  // Function to add a product to the cart
+
   const addToCart = (product) => {
     const updatedCart = [...cart];
-    // Find the index of the existing item in the cart, if it exists already on the cart, (this will just ncrement quantity not add a duplicate)
     const existingItemIndex = updatedCart.findIndex(item => item.id === product.id);
 
     // If the item exists in the cart, increase its quantity by 1; otherwise, add it to the cart with a quantity of 1
@@ -30,26 +29,19 @@ const ProductPage = () => {
     } else {
       updatedCart.push({ ...product, quantity: 1 });
     }
-
-    // Update the cart state with the updatedCart array
     setCart(updatedCart);
   };
 
   // Function to remove a product from the cart
   const removeFromCart = (productId) => {
-    // Create a copy of the current cart array
     const updatedCart = [...cart];
-
-    // Find the index of the item to be removed based on its productId
     const existingItemIndex = updatedCart.findIndex(item => item.id === productId);
 
-    // Check if the item exists in the cart
+    // If the item exists in the cart, reduce its quantity by 1; if quantity is 1, remove the item from the cart
     if (existingItemIndex !== -1) {
-      // If the quantity of the item is greater than 1, reduce it by 1
       if (updatedCart[existingItemIndex].quantity > 1) {
         updatedCart[existingItemIndex].quantity -= 1;
       } else {
-        // If the quantity is 1, completely remove the item from the cart
         updatedCart.splice(existingItemIndex, 1);
       }
       setCart(updatedCart);
@@ -58,24 +50,15 @@ const ProductPage = () => {
 
   return (
     <div className="product-page">
-      {/* Render the header component */}
       <Header />
-
-      {/* Table structure */}
       <table>
-        <tr>
-          <td>
-            {/* Render the product list component and pass the addToCart function as a prop */}
-            <ProductList addToCart={addToCart} />
-          </td>
-          <td style={{ verticalAlign: 'top' }}>
-            {/* Render the cart component and pass the cart state and removeFromCart function as props */}
-            <Cart cart={cart} removeFromCart={removeFromCart} />
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <td><ProductList addToCart={addToCart}/></td>
+            <td style={{ verticalAlign: 'top' }}><Cart cart={cart} removeFromCart={removeFromCart}/></td>
+          </tr>
+        </tbody>
       </table>
-
-      {/* Render the footer component */}
       <Footer />
     </div>
   );
@@ -132,20 +115,20 @@ export default ProductPage;
 //         setCartItems(updatedCartItems);
 //     };
 
-//     return (
-//         <div className="product-page">
-//             <Header />
-//             <table>
-//                 <tbody>
-//                     <tr>
-//                         <td><ProductList data={product} addToCart={addToCart} /></td>
-//                         <td style={{ verticalAlign: 'top' }}><Cart /></td>
-//                     </tr>
-//                 </tbody>
-//             </table>
-//             <Footer />
-//         </div>
-//     );
+    // return (
+    //     <div className="product-page">
+    //         <Header />
+    //         <table>
+    //             <tbody>
+    //                 <tr>
+    //                     <td><ProductList data={product} addToCart={addToCart} /></td>
+    //                     <td style={{ verticalAlign: 'top' }}><Cart /></td>
+    //                 </tr>
+    //             </tbody>
+    //         </table>
+    //         <Footer />
+    //     </div>
+    // );
 // };
 
 // Productpage.propTypes = {
