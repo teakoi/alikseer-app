@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Productpage from './component/Productpage';
 import Loginpage from './component/Loginpage';
+import product from './data/products';
 
 
 

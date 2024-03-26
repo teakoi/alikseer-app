@@ -116,6 +116,11 @@ main {
   justify-content: flex-start;
   width: 50%;
 }
+
+.product-image {
+  max-width: 100%;
+}
+
 .product-item {
   display: flex;
   max-width: 100%;
