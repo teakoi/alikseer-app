@@ -9,7 +9,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Productpage from './component/Productpage';
-import Loginpage from './component/Loginpage';
+import LoginPage from './component/LoginPage';
 import product from './data/products';
 
 
@@ -24,8 +24,8 @@ const router = createBrowserRouter([
     element: <Productpage/>
   },
   {
-    path: "/Loginpage",
-    element: <Loginpage/>
+    path: "/LoginPage",
+    element: <LoginPage/>
   }
 ]);
 

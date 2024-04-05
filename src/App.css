@@ -1,5 +1,5 @@
 
-/*Commenting out the css that they don't want yet for assignment 4*/
+/*Commenting out the css that they don't want for assignment 4/5*/
 
 /* styles.css */
 body {
@@ -204,28 +204,29 @@ main {
 .login-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center;
   background-color: #ddd;
   padding: 20px;
   margin: 20px;
-  border-radius: 10px;
+  border-radius: 10px; */
 }
 
 /* Form Field Styles */
-form label {
-  display: block;
+/* form label {
+  display: flex;
   margin: 10px;
-}
+} */
 
-form input {
+/* form input {
+
   background-color: #fff;
   padding: 10px;
   margin: 10px;
   border-radius: 5px;
-}
+} */
 
 /* Login Button Styles */
-.login-btn {
+/* .login-btn {
   background-color: #4CAF50;
   color: white;
   padding: 10px;
@@ -234,15 +235,15 @@ form input {
   margin: 10px;
   cursor: pointer;
   opacity: .5
-}
+} */
 
-.login-btn:hover {
+/* .login-btn:hover {
   background-color: #45A049;
   opacity: 1.0
-}
+} */
 
 /* Signup Link Styles */
-.signup-link {
+/* .signup-link {
   color: #007BFF;
   text-decoration: none;
   margin: 10px;
@@ -250,7 +251,60 @@ form input {
 
 .signup-link:hover {
   text-decoration: underline;
+} */
+
+
+/* Signup Form Section */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center;
+  background-color: #ddd;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px; */
 }
+
+/* Form Fields */
+/* .signup-form label {
+  display: block;
+  margin: 10px;
+}
+
+.signup-form input {
+  background-color: #fff;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+} */
+
+/* Signup Button */
+/* .signup-btn {
+  
+  background-color: #4CAF50;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+  opacity: 0.5;
+  color: white;
+  border: none;
+} */
+
+/* .signup-btn:hover {
+  background-color: #45A049;
+  opacity: 1.0;
+} */
+/* .msgbox {
+background-color: #f9f9f9;
+border: 2px;
+padding: 10px;
+margin: 20px;
+} */
+
+.message-box {
+  color: red;
+}
+
 
 /* Contact Information Section Styles */
 .contact-info {
@@ -284,57 +338,4 @@ form input {
 
 .contact-method ul li a:hover {
   color: #007BFF; /* Blue color on hover */
-}
-
-/* Signup Form Section */
-.signup-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #ddd;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 10px;
-}
-
-/* Form Fields */
-.signup-form label {
-  display: block;
-  margin: 10px;
-}
-
-.signup-form input {
-  background-color: #fff;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 5px;
-}
-
-/* Signup Button */
-.signup-btn {
-  background-color: #4CAF50;
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px;
-  opacity: 0.5;
-  color: white;
-  border: none;
-}
-
-.signup-btn:hover {
-  background-color: #45A049;
-  opacity: 1.0;
-}
-.msgbox {
-background-color: #f9f9f9;
-border: 2px;
-padding: 10px;
-margin: 20px;
-}
-
-.message-box {
-  border: 2px solid;
-  background-color: #f9f9f9;
-  padding: 10px;
-  margin: 20px;
 }

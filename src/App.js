@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import Productpage from './component/Productpage.js';
 import product from './data/products.js';
+import LoginPage from './component/LoginPage.js';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
 
       <Homepage />
       <Productpage />
+      <LoginPage />
 
 
     </div>

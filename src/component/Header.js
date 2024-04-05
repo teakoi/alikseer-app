@@ -16,7 +16,7 @@ const Header= () =>{
             <nav>
                 <Link to="/">Home</Link> {/*idk if this "/" will always work*/}
                 <Link to="/Productpage">Products</Link>
-                <Link to="/Loginpage">Login</Link>
+                <Link to="/LoginPage">Login</Link>
 
             </nav>
         </header>
