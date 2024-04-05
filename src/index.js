@@ -1,3 +1,13 @@
+/*
+=========================================================
+Name        : index.js for my-ecommerce-app
+Assignment  : Assignment 5
+Author(s)   : Zaira Ramji and Maryam Alayed
+Submission  : April 8, 2024
+=========================================================
+*/
+
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
