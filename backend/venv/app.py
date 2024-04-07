@@ -1,11 +1,11 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, redirect, url_for
 from flask_cors import CORS
 import requests
 import json
 import os
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/LoginPage": {"origins": "http://localhost:3000"}})
 
 products = [
  {
@@ -80,13 +80,33 @@ products = [
  }
 ]
 
+@app.route('/LoginPage', methods=['POST'])
+def login():
+    data = request.get_json()
+    entered_username = data.get('username')
+    entered_password = data.get('password')
+    # Check if the entered username and password match any user in the array
+    for user in fetch_user_data():
+        if user['username'] == entered_username and user['email'] == entered_password:
+            return jsonify({"authenticated": True, "message": "Authentication successful"})
+
+    return jsonify({"authenticated": False, "message": "Authentication failed. Incorrect username or password."})
+    
+
+
+
 # Fetch user data from the provided URL
 def fetch_user_data():
     response = requests.get('https://jsonplaceholder.typicode.com/users')
     if response.status_code == 200:
         return response.json()
     else:
+        print(f"Failed to fetch data. Status code: {response.status_code}")
         return None
+
+#users_data = fetch_user_data()
+# if users_data:
+#     print(users_data)
 
 def fetch_products():
     return jsonify(products)
@@ -94,56 +114,6 @@ def fetch_products():
 
 
 
-
-
-# Initialize empty list to store users
-users = fetch_user_data() or []
-
-# User Signup API endpoint
-@app.route('/api/signup', methods=['POST'])
-def register_user():
-    # Extract username, password, and email from request body
-    data = request.json
-    username = data.get('username')
-    password = data.get('password')
-    email = data.get('email')
-
-    # Check if username already exists
-    if any(user['username'] == username for user in users):
-        return jsonify({'error': 'Username already exists'}), 400
-
-    # Add user to the list
-    users.append({'username': username, 'password': password, 'email': email})
-    return jsonify({'message': 'User registered successfully'}), 201
-
-# User Authentication API endpoint
-@app.route('/api/login', methods=['POST'])
-def login_user():
-    # Extract username and password from request body
-    data = request.json
-    username = data.get('username')
-    password = data.get('password')
-
-    # Check if the user exists and the password matches
-    user = next((user for user in users if user['username'] == username and user['password'] == password), None)
-
-    if user:
-        # Redirect user to the Product page (you can replace 'product' with the actual URL)
-        return redirect(url_for('../src/component/Productpage.js'))
-    else:
-        return jsonify({'error': 'Incorrect username or password'}), 401
-
-@app.route('/products', methods =['GET'])
-@app.route('/products/<int:product_id>', methods =['GET'])
-def get_products(product_id = None):
-    products = load_products()
-    if product_id is None:
-        # Return all products wrapped in an object with a ' products ' key
-        return jsonify({"products": products})
-    else:
-        product = next((p for p in products if p ['id'] == product_id) , None )
-
-    return jsonify (product) if product else (' ' , 404)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -33,7 +33,7 @@ const HomeMainSection = () =>{
     return(
         <main>
             
-            <section class = "about-us">
+            <section className = "about-us">
                 
                 <h2>About Us:</h2>
                 <p> Derived from the Arabic word <i>al-iksir</i>, which is the origin of the term "elixir", Alikseer 

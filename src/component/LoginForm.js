@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SignupForm from './SignupForm';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 
 const LoginForm = () =>{
@@ -8,6 +9,37 @@ const LoginForm = () =>{
     const [password, setPassword] = useState('');
     const [showSignup, setShowSignup] = useState(false);
     const [message, setMessage] = useState({ type: '', content: '' }); // State to manage the message
+    const [authenticated, setAuthenticated] = useState(false);
+    const navigate = useNavigate();
+
+    async function handleSubmit(event){
+        const backendEndpoint = 'http://127.0.0.1:5000/LoginPage';
+        try {
+            const response = await fetch(backendEndpoint, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 'username': username, 'password': password }),
+            });
+            const data = await response.json();
+            if (response.ok && data.authenticated) {
+                setAuthenticated(true);
+                setMessage({ type: 'success', content: 'Authentication successful' });
+                navigate('/Productpage'); // Redirect to Productpage after successful authentication
+            } else {
+                setAuthenticated(false);
+                setMessage({ type: 'error', content: 'Authentication failed. Incorrect username or password.' });
+            }
+        } catch (error) {
+            console.error('Error occurred during authentication:', error);
+            setMessage({ type: 'error', content: 'Authentication failed. Please try again.' });
+        }
+    };
+    
+    
+                
+
 
 
     const displayMessage = (type, content) => {
@@ -65,7 +97,7 @@ const LoginForm = () =>{
                 </div>
             )}
 
-            <form className="login-form" onSubmit={(e) => e.preventDefault()}>
+            <form className="login-form" onSubmit={(e) => {e.preventDefault()}}>
                 <div>
                     <label htmlFor="username">Username:</label>
                     <input type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} required placeholder="Enter your username" />
@@ -75,7 +107,7 @@ const LoginForm = () =>{
                     <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder="Enter your password" />
                 </div>
                 <div>
-                    <button type="button" className="login-btn" onClick={loginUser}>Login</button>
+                    <button type="button" className="login-btn" onClick={() =>{loginUser();handleSubmit()}}>Login</button>
                 </div>
                 <div>
                     <button type="button" className= "signup-btn" onClick={switchToSignup}>Switch to Signup</button>
