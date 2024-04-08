@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LoginForm from './LoginForm';
+import { useNavigate } from 'react-router-dom';
 
 const SignupForm = () => {
     const [username, setUsername] = useState('');
@@ -8,6 +9,8 @@ const SignupForm = () => {
     const [email, setEmail] = useState('');
     const [showLogin, setShowLogin] = useState(false); // State to control the display of the LoginForm
     const [message, setMessage] = useState({ type: '', content: '' }); // State to manage the message
+    const navigate = useNavigate();
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -42,6 +45,9 @@ const SignupForm = () => {
             }
     
             displayMessage('success', 'Signup successful!');
+            console.log('success')
+            navigate('/Productpage'); // Redirect to Productpage after successful authentication
+            console.log('navigated')
         } catch (error) {
             displayMessage('error', 'Something went wrong. Please try again later.');
         }

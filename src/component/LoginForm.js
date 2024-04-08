@@ -13,6 +13,12 @@ const LoginForm = () =>{
 
     const handleSubmit = async (e)=>{
         e.preventDefault()
+
+        if (username.trim() === '' || password.trim() === '') {
+            displayMessage('error', 'Username and password are required.');
+            return;
+        }
+
         try {
             const response = await fetch('http://localhost:5000/api/Login', {
                 method: 'POST',
@@ -25,7 +31,7 @@ const LoginForm = () =>{
             if (response.ok) {
                 setMessage({ type: 'success', content: 'Authentication successful' });
                 console.log('success')
-                navigate('./Productpage.js'); // Redirect to Productpage after successful authentication
+                navigate('/Productpage'); // Redirect to Productpage after successful authentication
                 console.log('navigated')
             } else {
                 setMessage({ type: 'error', content: 'Authentication failed. Incorrect username or password.' });
@@ -41,12 +47,6 @@ const LoginForm = () =>{
         setTimeout(() => setMessage({ type: '', content: '' }), 50000); // Clear the message after 50 seconds
     };
 
-    const loginUser = () => {
-        if (username.trim() === '' || password.trim() === '') {
-            displayMessage('error', 'Username and password are required.');
-            return;
-        }
-    };
 
 
 
@@ -78,7 +78,7 @@ const LoginForm = () =>{
                     <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder="Enter your password" />
                 </div>
                 <div>
-                    <button type="button" className="login-btn" onClick={() =>{loginUser()}}>Login</button>
+                    <button type="submit" className="login-btn">Login</button>
                 </div>
                 <div>
                     <button type="button" className= "signup-btn" onClick={switchToSignup}>Switch to Signup</button>
