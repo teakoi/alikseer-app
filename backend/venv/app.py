@@ -1,11 +1,11 @@
-from flask import Flask, request, jsonify, redirect, url_for
+from flask import Flask, request, jsonify, redirect
 from flask_cors import CORS
 import requests
 import json
 import os
 
 app = Flask(__name__)
-CORS(app, resources={r"/LoginPage": {"origins": "http://localhost:3000"}})
+CORS(app)
 
 products = [
  {
@@ -80,35 +80,37 @@ products = [
  }
 ]
 
+users = []
+
+@app.route('/SignupPage', methods=['POST'])
+def signup():
+    data = request.JSON
+    username = data.get('username')
+    password = data.get('password')
+    email = data.get('email')
+
+    if any(user['username'] == username for user in users):
+        return jsonify({'error': 'Username already exists'}), 400
+
+    users.append({'username': username, 'password': password, 'email': email})
+    return jsonify({'message': 'User registered successfully'}), 201
+
+
 @app.route('/LoginPage', methods=['POST'])
 def login():
     data = request.get_json()
-    entered_username = data.get('username')
-    entered_password = data.get('password')
-    # Check if the entered username and password match any user in the array
-    for user in fetch_user_data():
-        if user['username'] == entered_username and user['email'] == entered_password:
-            return jsonify({"authenticated": True, "message": "Authentication successful"})
+    username = data.get('username')
+    password = data.get('password')
 
-    return jsonify({"authenticated": False, "message": "Authentication failed. Incorrect username or password."})
-    
+    for user in users:
+        if user['username'] == username and user['password'] == password:
+            return jsonify({'message': 'Login successful'}), 200
 
+    return jsonify({'error': 'Invalid username or password'}), 401
 
 
-# Fetch user data from the provided URL
-def fetch_user_data():
-    response = requests.get('https://jsonplaceholder.typicode.com/users')
-    if response.status_code == 200:
-        return response.json()
-    else:
-        print(f"Failed to fetch data. Status code: {response.status_code}")
-        return None
-
-#users_data = fetch_user_data()
-# if users_data:
-#     print(users_data)
-
-def fetch_products():
+@app.route('/api/products', methods=['GET'])
+def get_products():
     return jsonify(products)
 
 
