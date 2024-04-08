@@ -9,7 +9,7 @@ const SignupForm = () => {
     const [showLogin, setShowLogin] = useState(false); // State to control the display of the LoginForm
     const [message, setMessage] = useState({ type: '', content: '' }); // State to manage the message
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (username.trim() === '' || password.trim() === '' || confirmPassword.trim() === '' || email.trim() === '') {
@@ -26,8 +26,26 @@ const SignupForm = () => {
             return;
         }
 
-
-        displayMessage('success', 'Signup successful!');
+        try {
+            const response = await fetch('/api/SignupForm', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password, email })
+            });
+    
+            if (!response.ok) {
+                const data = await response.json();
+                displayMessage('error', data.error || 'Signup failed.');
+                return;
+            }
+    
+            displayMessage('success', 'Signup successful!');
+        } catch (error) {
+            console.error('Error:', error);
+            displayMessage('error', 'Something went wrong. Please try again later.');
+        }
     };
 
     const displayMessage = (type, content) => {
@@ -60,19 +78,19 @@ const SignupForm = () => {
             <form className="signup-form" onSubmit={handleSubmit} noValidate>
                 <div>
                     <label htmlFor="username">Username:</label>
-                    <input type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} required placeholder="Enter your username" />
+                    <input type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter your username" />
                 </div>
                 <div>
                     <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder="Enter your password" />
+                    <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password" />
                 </div>
                 <div>
                     <label htmlFor="confirmPassword">Confirm Password:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required placeholder="Confirm your password" />
+                    <input type="password" id="confirmPassword" name="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm your password" />
                 </div>
                 <div>
                     <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder="Enter your email" />
+                    <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email" />
 
                 </div>
                 <div>

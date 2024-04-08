@@ -82,7 +82,7 @@ products = [
 
 users = []
 
-@app.route('/SignupPage', methods=['POST'])
+@app.route('/api/SignupForm', methods=['POST'])
 def signup():
     data = request.JSON
     username = data.get('username')

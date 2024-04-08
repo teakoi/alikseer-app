@@ -13,6 +13,7 @@ const LoginForm = () =>{
     const navigate = useNavigate();
 
     async function handleSubmit(event){
+        event.preventDefault()
         const backendEndpoint = 'http://127.0.0.1:5000/LoginPage';
         try {
             const response = await fetch(backendEndpoint, {
@@ -26,7 +27,9 @@ const LoginForm = () =>{
             if (response.ok && data.authenticated) {
                 setAuthenticated(true);
                 setMessage({ type: 'success', content: 'Authentication successful' });
-                navigate('/Productpage'); // Redirect to Productpage after successful authentication
+                console.log('success')
+                navigate('./Productpage'); // Redirect to Productpage after successful authentication
+                console.log('navigated')
             } else {
                 setAuthenticated(false);
                 setMessage({ type: 'error', content: 'Authentication failed. Incorrect username or password.' });
@@ -97,7 +100,7 @@ const LoginForm = () =>{
                 </div>
             )}
 
-            <form className="login-form" onSubmit={(e) => {e.preventDefault()}}>
+            <form className="login-form" onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="username">Username:</label>
                     <input type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} required placeholder="Enter your username" />
@@ -107,7 +110,7 @@ const LoginForm = () =>{
                     <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder="Enter your password" />
                 </div>
                 <div>
-                    <button type="button" className="login-btn" onClick={() =>{loginUser();handleSubmit()}}>Login</button>
+                    <button type="button" className="login-btn" onClick={() =>{loginUser()}}>Login</button>
                 </div>
                 <div>
                     <button type="button" className= "signup-btn" onClick={switchToSignup}>Switch to Signup</button>
