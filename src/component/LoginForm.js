@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SignupForm from './SignupForm';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const LoginForm = () =>{
@@ -14,7 +14,7 @@ const LoginForm = () =>{
     const handleSubmit = async (e)=>{
         e.preventDefault()
         try {
-            const response = await fetch('/api/Login', {
+            const response = await fetch('http://localhost:5000/api/Login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -46,29 +46,6 @@ const LoginForm = () =>{
             displayMessage('error', 'Username and password are required.');
             return;
         }
-
-        // Make API call to fetch user data
-
-        fetch('https://jsonplaceholder.typicode.com/users')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch user data from API.');
-                    }
-                    return response.json();
-                })
-                .then(users => {
-                    const user = users.find(user => user.username === username && user.email === password);
-
-                    if (user) {
-                        displayMessage('success', 'Login successful!');
-                    } else {
-                        displayMessage('error', 'Invalid username or password. Please try again.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching user data:', error);
-                    displayMessage('error', 'An error occurred while fetching user data. Please try again later.');
-                });
     };
 
 

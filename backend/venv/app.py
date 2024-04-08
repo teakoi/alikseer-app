@@ -5,7 +5,7 @@ import json
 import os
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
 
 products = [
  {
@@ -84,7 +84,7 @@ users = []
 
 @app.route('/api/SignupForm', methods=['POST'])
 def signup():
-    data = request.JSON
+    data = request.get_json()
     username = data.get('username')
     password = data.get('password')
     email = data.get('email')
@@ -115,7 +115,5 @@ def get_products():
 
 
 
-
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000)

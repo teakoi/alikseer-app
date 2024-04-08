@@ -27,7 +27,7 @@ const SignupForm = () => {
         }
 
         try {
-            const response = await fetch('/api/SignupForm', {
+            const response = await fetch('http://localhost:5000/api/SignupForm', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -43,7 +43,6 @@ const SignupForm = () => {
     
             displayMessage('success', 'Signup successful!');
         } catch (error) {
-            console.error('Error:', error);
             displayMessage('error', 'Something went wrong. Please try again later.');
         }
     };
