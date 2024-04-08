@@ -9,29 +9,25 @@ const LoginForm = () =>{
     const [password, setPassword] = useState('');
     const [showSignup, setShowSignup] = useState(false);
     const [message, setMessage] = useState({ type: '', content: '' }); // State to manage the message
-    const [authenticated, setAuthenticated] = useState(false);
     const navigate = useNavigate();
 
-    async function handleSubmit(event){
-        event.preventDefault()
-        const backendEndpoint = 'http://127.0.0.1:5000/LoginPage';
+    const handleSubmit = async (e)=>{
+        e.preventDefault()
         try {
-            const response = await fetch(backendEndpoint, {
+            const response = await fetch('/api/Login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ 'username': username, 'password': password }),
+                body: JSON.stringify({ username, password }),
             });
-            const data = await response.json();
-            if (response.ok && data.authenticated) {
-                setAuthenticated(true);
+
+            if (response.ok) {
                 setMessage({ type: 'success', content: 'Authentication successful' });
                 console.log('success')
-                navigate('./Productpage'); // Redirect to Productpage after successful authentication
+                navigate('./Productpage.js'); // Redirect to Productpage after successful authentication
                 console.log('navigated')
             } else {
-                setAuthenticated(false);
                 setMessage({ type: 'error', content: 'Authentication failed. Incorrect username or password.' });
             }
         } catch (error) {
@@ -40,11 +36,6 @@ const LoginForm = () =>{
         }
     };
     
-    
-                
-
-
-
     const displayMessage = (type, content) => {
         setMessage({ type, content });
         setTimeout(() => setMessage({ type: '', content: '' }), 50000); // Clear the message after 50 seconds

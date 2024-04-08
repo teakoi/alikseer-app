@@ -96,7 +96,7 @@ def signup():
     return jsonify({'message': 'User registered successfully'}), 201
 
 
-@app.route('/LoginPage', methods=['POST'])
+@app.route('/api/Login', methods=['POST'])
 def login():
     data = request.get_json()
     username = data.get('username')
