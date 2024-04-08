@@ -46,8 +46,8 @@ const SignupForm = () => {
     
             displayMessage('success', 'Signup successful!');
             console.log('success')
-            navigate('/Productpage'); // Redirect to Productpage after successful authentication
-            console.log('navigated')
+            //navigate('/Productpage'); // commented out bc gif doesnt have the redirect after signup
+            //console.log('navigated') 
         } catch (error) {
             displayMessage('error', 'Something went wrong. Please try again later.');
         }
