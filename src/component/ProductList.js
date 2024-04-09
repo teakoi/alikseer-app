@@ -6,7 +6,7 @@ const ProductList = ({ addProductToCart }) => {
 
   useEffect(() => {
     // Fetch products from the backend API
-    fetch('/api/products')
+    fetch('http://127.0.0.1:5000/api/products')
       .then(response => {
         if (response.ok) {
           return response.json();
@@ -39,35 +39,4 @@ const ProductList = ({ addProductToCart }) => {
 
 export default ProductList;
 
-// import React, { useState } from 'react';
-// import PropTypes from 'prop-types';
-// import ProductItem from './ProductItem';
-// import product from '../data/products';
-// import Productpage from './Productpage';
-// import CartItem from './CartItem'; // Import CartItem
 
-// const ProductList = (props) => {
-//   const { addToCart } = props;
-
-//     return (
-//         <div className="ProductListContainer">
-//             <p>product list.</p>
-//             <div className="productsList">
-                
-//                 {product.map((productData) => (
-//                     <ProductItem 
-//                       key={productData.id} 
-//                       data={productData} 
-//                       addToCart={props.addToCart}/>
-//                 ))}
-//             </div>
-//         </div>
-//     );
-// };
-
-// ProductList.propTypes = {
-//   addToCart: PropTypes.func.isRequired // Validate that addToCart is a function and is required
-// };
-
-
-// export default ProductList;

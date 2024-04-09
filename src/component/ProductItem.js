@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 
 const ProductItem = ({ product, addProductToCart }) => {
     const { name, image, price, description } = product;
- 
     const [showDescription, setShowDescription] = useState(false);
 
-
- 
     const handleaddProductToCart = () => {
         addProductToCart(product);
     };
