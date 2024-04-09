@@ -8,7 +8,7 @@ Submission  : April 8, 2024
 */
 
 
-import React from 'react';
+import React, { useState }  from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Homepage from './component/Homepage';
@@ -20,7 +20,7 @@ import {
 } from "react-router-dom";
 import Productpage from './component/Productpage';
 import LoginPage from './component/LoginPage';
-import product from './data/products';
+
 
 
 
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/LoginPage",
-    element: <LoginPage/>
+    element: <LoginPage />
   }
 ]);
 
