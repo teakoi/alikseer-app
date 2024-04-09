@@ -3,6 +3,8 @@ import Header from './Header';
 import ProductList from './ProductList';
 import Cart from './Cart';
 import Footer from './Footer';
+import {useNavigate} from 'react-router-dom';
+import { useAuthContext } from '../App.js';
 
 
 const ProductPage = () => {
@@ -12,6 +14,16 @@ const ProductPage = () => {
     const savedCart = localStorage.getItem('cart');
     return savedCart ? JSON.parse(savedCart) : [];
   });
+
+  const {authenticated} = useAuthContext();
+  const navigate = useNavigate();
+  //for navigating to login when not logged in
+  useEffect(()=> {
+    console.log("Authenticated:", authenticated)
+    if (!authenticated){
+        navigate(`/login`);
+    }},[authenticated, navigate]);
+
 
   // Save cart to localStorage whenever it changes using useEffect hook
   useEffect(() => {
@@ -69,82 +81,3 @@ export default ProductPage;
 
 
 
-
-// import React, { useState, useEffect } from 'react';
-// import PropTypes from 'prop-types';
-// import Footer from './Footer';
-// import Header from './Header';
-// import ProductList from './ProductList';
-// import Cart from './Cart';
-// import { CartItem } from './CartItem';
-// import ProductItem from './ProductItem';
-// import product from '../data/products';
-
-
-
-
-// const Productpage = (props) => {
-//     const { id, name, price, image, description } = props.data
-//     const [quantity, setQuantity] = useState(1);
-//     const [cartItems, setCartItems] = useState([]);
-
-//     useEffect(() => {
-//         if (props.data && props.cartItems) {
-//           localStorage.setItem('cartItems', JSON.stringify(cartItems)); //Thing from alend
-//             const existingItem = props.cartItems.find(item => item.id === props.data.id);
-//             if (existingItem) {
-//                 setQuantity(existingItem.quantity + 1);
-//             }
-//         }
-//     }, [props.cartItems, props.data]);
-
-//     const addToCart = (product) => {
-//         console.log(`Item added to cart:', "${name}"`);
-//         console.log(`Price: "${price}"`)
-//         console.log(`id"${id}"`)
-//         // Implement your addToCart functionality here
-//     };
-
-//     let totalPrice = 0;
-//     for (const item of cartItems) {
-//         totalPrice += item.price * item.quantity;
-//     }
-
-//     const removeItemFromCart = (id) => {
-//         const updatedCartItems = cartItems.filter(item => item.id !== id);
-//         setCartItems(updatedCartItems);
-//     };
-
-    // return (
-    //     <div className="product-page">
-    //         <Header />
-    //         <table>
-    //             <tbody>
-    //                 <tr>
-    //                     <td><ProductList data={product} addToCart={addToCart} /></td>
-    //                     <td style={{ verticalAlign: 'top' }}><Cart /></td>
-    //                 </tr>
-    //             </tbody>
-    //         </table>
-    //         <Footer />
-    //     </div>
-    // );
-// };
-
-// Productpage.propTypes = {
-//     data: PropTypes.shape({
-//         id: PropTypes.string.isRequired,
-//         name: PropTypes.string.isRequired,
-//         price: PropTypes.number.isRequired,
-//         image: PropTypes.string.isRequired,
-//         description: PropTypes.string.isRequired,
-//     }),
-//     cartItems: PropTypes.arrayOf(PropTypes.shape({
-//         id: PropTypes.string.isRequired,
-//         name: PropTypes.string.isRequired,
-//         price: PropTypes.number.isRequired,
-//         quantity: PropTypes.number.isRequired,
-//     })),
-// };
-
-// export default Productpage;

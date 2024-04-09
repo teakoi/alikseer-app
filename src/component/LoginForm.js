@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import SignupForm from './SignupForm';
+import SignupForm from './SignupForm.js';
 import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../App.js';
 
 
 const LoginForm = () =>{
@@ -9,6 +10,7 @@ const LoginForm = () =>{
     const [password, setPassword] = useState('');
     const [showSignup, setShowSignup] = useState(false);
     const [message, setMessage] = useState({ type: '', content: '' }); // State to manage the message
+    const { setAuthenticated } = useAuthContext(); // Access setAuthenticated function from context
     const navigate = useNavigate();
 
     const handleSubmit = async (e)=>{
@@ -20,7 +22,7 @@ const LoginForm = () =>{
         }
 
         try {
-            const response = await fetch('http://localhost:5000/api/Login', {
+            const response = await fetch('http://127.0.0.1:5000/api/Login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -31,8 +33,8 @@ const LoginForm = () =>{
             if (response.ok) {
                 setMessage({ type: 'success', content: 'Authentication successful' });
                 console.log('success')
-                navigate('/Productpage'); // Redirect to Productpage after successful authentication
-                console.log('navigated')
+                setAuthenticated(true);
+                navigate('/products'); // Redirect to Productpage after successful authentication
             } else {
                 setMessage({ type: 'error', content: 'Authentication failed. Incorrect username or password.' });
             }

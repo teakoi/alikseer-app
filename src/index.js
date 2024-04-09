@@ -8,42 +8,16 @@ Submission  : April 8, 2024
 */
 
 
-import React, { useState }  from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Homepage from './component/Homepage';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Productpage from './component/Productpage';
-import LoginPage from './component/LoginPage';
-
-
-
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Homepage/>
-  },
-  {
-    path: "/Productpage",
-    element: <Productpage/>
-  },
-  {
-    path: "/LoginPage",
-    element: <LoginPage />
-  }
-]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <App />
   </React.StrictMode>
 );
 

@@ -45,7 +45,7 @@ const HomeMainSection = () =>{
 
 
             <section className="shop-now">
-                <Link to="/Productpage"><button className="shop-now-btn">Shop Now!</button></Link>
+                <Link to="/products"><button className="shop-now-btn">Shop Now!</button></Link>
             </section>
 
 

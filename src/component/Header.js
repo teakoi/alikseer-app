@@ -12,11 +12,11 @@ const Header= () =>{
             <div className= "company-name">
                 <h1> Alikseer </h1>
             </div>
-            {/* I put routing in index.js, hope that's ok */}
+            {/* I put routing in app.js*/}
             <nav>
                 <Link to="/">Home</Link> {/*idk if this "/" will always work*/}
-                <Link to="/Productpage">Products</Link>
-                <Link to="/LoginPage">Login</Link>
+                <Link to="/products">Products</Link>
+                <Link to="/login">Login</Link>
 
             </nav>
         </header>

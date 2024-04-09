@@ -9,7 +9,6 @@ const SignupForm = () => {
     const [email, setEmail] = useState('');
     const [showLogin, setShowLogin] = useState(false); // State to control the display of the LoginForm
     const [message, setMessage] = useState({ type: '', content: '' }); // State to manage the message
-    const navigate = useNavigate();
 
 
     const handleSubmit = async (e) => {
@@ -30,7 +29,7 @@ const SignupForm = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/api/SignupForm', {
+            const response = await fetch('http://127.0.0.1:5000/api/SignupForm', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -46,8 +45,7 @@ const SignupForm = () => {
     
             displayMessage('success', 'Signup successful!');
             console.log('success')
-            //navigate('/Productpage'); // commented out bc gif doesnt have the redirect after signup
-            //console.log('navigated') 
+
         } catch (error) {
             displayMessage('error', 'Something went wrong. Please try again later.');
         }
@@ -83,19 +81,43 @@ const SignupForm = () => {
             <form className="signup-form" onSubmit={handleSubmit} noValidate>
                 <div>
                     <label htmlFor="username">Username:</label>
-                    <input type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter your username" />
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        value={username} 
+                        onChange={(e) => setUsername(e.target.value)} 
+                        placeholder="Enter your username" />
                 </div>
                 <div>
                     <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password" />
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        value={password} 
+                        onChange={(e) => setPassword(e.target.value)} 
+                        placeholder="Enter your password" />
                 </div>
                 <div>
                     <label htmlFor="confirmPassword">Confirm Password:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm your password" />
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        name="confirmPassword" 
+                        value={confirmPassword} 
+                        onChange={(e) => setConfirmPassword(e.target.value)} 
+                        placeholder="Confirm your password" />
                 </div>
                 <div>
                     <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email" />
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)} 
+                        placeholder="Enter your email" />
 
                 </div>
                 <div>
