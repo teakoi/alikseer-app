@@ -23,7 +23,6 @@ const ProductList = ({ addProductToCart }) => {
 
 
 
-
   return (
     <div className="product-list">
 
