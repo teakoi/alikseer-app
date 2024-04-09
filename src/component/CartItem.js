@@ -1,19 +1,20 @@
-import React from 'react';
-import products from '../data/products';
+import React, { useState, useEffect } from 'react';
+
 
 const CartItem = ({ item, removeProductFromCart, updateQuantity }) => {
-  const product = products.find(product => product.id === item.id);
 
-  if (!product) return null;
+  // const product = products.find(product => product.id === item.id);
+
+  // if (!product) return null;
 
   return (
     <div className="cart-item">
-      <img className="product-image" src={product.image} alt={product.name} width="200" />
+      <img className="product-image" src={item.image} alt={item.name} width="200" />
       <div>
-        <p className="product-name">{product.name}</p>
-        <p className="price">Price: ${product.price}</p>
+        <p className="product-name">{item.name}</p>
+        <p className="price">Price: ${item.price}</p>
         <p className="quantity">Quantity: {item.quantity}</p>
-        <p className="total-price">Total: ${product.price * item.quantity}</p>
+        <p className="total-price">Total: ${item.price * item.quantity}</p>
         <button onClick={() => removeProductFromCart(item.id)}>Remove</button>
       </div>
     </div>
